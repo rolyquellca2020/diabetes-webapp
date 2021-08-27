@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Prediccion de diabetes</h1>
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <input id="glucosa" type="text" name="Glucose Level" placeholder="Nivel de glucosa" required="required" />
+    	<input id="insulina" type="text" name="Insulin" placeholder="Insulina" required="required" />
+        <input id="imc" type="text" name="BMI" placeholder="IMC" required="required" />
+        <input id="edad" type="text" name="Age" placeholder="Edad" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Prediccion</button>
+    </form>
+    <div id="caja">
+      
+    </div>
+   <br>
+
+   <br>
+
+   <script>
+     let mostrar = document.getElementById("caja")
+     valGlocosa = "p" + document.getElementById("glucosa").value + "</p>"
+     valInsulina = "p" + document.getElementById("glucosa").value + "</p>"
+     valImc = "p" + document.getElementById("glucosa").value + "</p>"
+     valedad = "p" + document.getElementById("glucosa").value + "</p>"
+
+   </script>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
